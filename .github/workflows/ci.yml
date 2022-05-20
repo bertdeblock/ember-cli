@@ -10,6 +10,7 @@ on:
       - 'v*'
       - 'release-*'
       - 'lts-*'
+      - debug-test
   pull_request:
   schedule:
     - cron:  '0 3 * * *' # daily, at 3am
@@ -48,6 +49,8 @@ jobs:
           node-version: 12.x
           cache: 'yarn'
 
+      - name: Overwrite `git` protocol with `https`
+        run: git config --global url."https://git@".insteadOf git://
       - run: yarn install --frozen-lockfile --non-interactive
       - run: yarn test
 
@@ -70,6 +73,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
 
+      - name: Overwrite `git` protocol with `https`
+        run: git config --global url."https://git@".insteadOf git://
       - run: yarn install --frozen-lockfile --non-interactive
       - run: yarn test:all
 
@@ -95,6 +100,8 @@ jobs:
           node-version: 12.x
           cache: 'yarn'
 
+      - name: Overwrite `git` protocol with `https`
+        run: git config --global url."https://git@".insteadOf git://
       - run: yarn install --frozen-lockfile --non-interactive
       - run: yarn test:all
         env:
