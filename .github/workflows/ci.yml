@@ -10,6 +10,7 @@ on:
       - 'v*'
       - 'release-*'
       - 'lts-*'
+      - replace-babel-eslint-and-update-eslint-in-app-blueprint
   pull_request:
   schedule:
     - cron:  '0 3 * * *' # daily, at 3am
