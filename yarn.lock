@@ -249,13 +249,6 @@
     core-js "^2.6.5"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.14.0":
-  version "7.17.2"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.17.2.tgz#66f68591605e59da47523c631416b18508779941"
-  integrity sha512-hzeyJyMA1YGdJTuWU0e/j4wKXrU4OMFvY2MSlaI9B7VQb0r5cxTE3EAIS2Q7Tn2RIcDkRvTA/v2JsAEhxe99uw==
-  dependencies:
-    regenerator-runtime "^0.13.4"
-
 "@babel/template@^7.16.7":
   version "7.16.7"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.16.7.tgz#8d126c8701fde4d66b264b3eba3d96f07666d155"
@@ -4571,12 +4564,10 @@ is-interactive@^1.0.0:
   resolved "https://registry.yarnpkg.com/is-interactive/-/is-interactive-1.0.0.tgz#cea6e6ae5c870a7b0a0004070b7b587e0252912e"
   integrity sha512-2HvIEKRoqS62guEC+qBjpvRubdX910WCMuJTZ+I9yvqKU2/12eSL549HMwtabb4oupdj2sMP50k+XJfB/8JE6w==
 
-is-language-code@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/is-language-code/-/is-language-code-3.1.0.tgz#b2386b49227e7010636f16d0c2c681ca40136ab5"
-  integrity sha512-zJdQ3QTeLye+iphMeK3wks+vXSRFKh68/Pnlw7aOfApFSEIOhYa8P9vwwa6QrImNNBMJTiL1PpYF0f4BxDuEgA==
-  dependencies:
-    "@babel/runtime" "^7.14.0"
+is-language-code@^4.0.15:
+  version "4.0.15"
+  resolved "https://registry.yarnpkg.com/is-language-code/-/is-language-code-4.0.15.tgz#e689b21699012ecbd24fed6d77f5af1c22efcea2"
+  integrity sha512-pBXnXpVVyTiG5w+I8ySs4HaAszbtLKXtZBoI3Iw2e87T6sK6y7ATsimXuuUjwkgYFpCAzqPnzHXagRgdp+hnPQ==
 
 is-negative-zero@^2.0.1:
   version "2.0.2"
