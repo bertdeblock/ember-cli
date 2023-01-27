@@ -143,4 +143,10 @@ describe('Acceptance: ember generate in-addon', function () {
     await generateInAddon(['server']);
     expect(file('server/index.js')).to.exist;
   });
+
+  it('successfully generates the default blueprint for scoped addons', async function () {
+    await initAddon('@foo/bar');
+    await ember(['g', 'blueprint', '@foo/bar']);
+    await ember(['g', '@foo/bar', 'baz']);
+  });
 });
