@@ -11,18 +11,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: wyvox/action-setup-pnpm@v2
         with:
           node-version: 16
-
-      - run: yarn install --frozen-lockfile --non-interactive
 
       - name: Test && Report to Code Climate
         uses: paambaati/codeclimate-action@v5.0.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
-          coverageCommand: yarn test:cover
+          coverageCommand: pnpm test:cover
           coverageLocations: "coverage/lcov.info:lcov"
 
       - name: Coveralls

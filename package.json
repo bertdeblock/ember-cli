@@ -29,7 +29,7 @@
   "scripts": {
     "docs": "yuidoc",
     "lint": "eslint . --cache",
-    "prepack": "yarn docs",
+    "prepack": "pnpm docs",
     "test": "node --unhandled-rejections=strict tests/runner",
     "test:all": "node --unhandled-rejections=strict tests/runner all",
     "test:cover": "nyc --all --reporter=text --reporter=lcov node tests/runner all",
@@ -175,8 +175,9 @@
     }
   },
   "trackingCode": "UA-49225444-1",
+  "packageManager": "pnpm@8.6.12",
   "volta": {
     "node": "16.19.1",
-    "yarn": "1.22.19"
+    "pnpm": "8.6.12"
   }
 }
