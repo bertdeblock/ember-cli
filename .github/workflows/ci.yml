@@ -10,6 +10,7 @@ on:
       - 'v*'
       - 'release-*'
       - 'lts-*'
+      - switch-to-pnpm
   pull_request:
   merge_group:
   schedule:
