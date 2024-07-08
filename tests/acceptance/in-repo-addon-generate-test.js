@@ -34,7 +34,7 @@ describe('Acceptance: ember generate in-repo-addon', function () {
   });
 
   function initApp() {
-    return ember(['init', '--name=my-app', '--skip-npm']);
+    return ember(['init', '--name=my-app']);
   }
 
   async function initInRepoAddon() {

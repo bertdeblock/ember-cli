@@ -40,7 +40,7 @@ describe('Acceptance: ember destroy pod', function () {
   });
 
   function initApp() {
-    return ember(['init', '--name=my-app', '--skip-npm']);
+    return ember(['init', '--name=my-app']);
   }
 
   function generate(args) {
@@ -97,20 +97,6 @@ describe('Acceptance: ember destroy pod', function () {
   it('blueprint foo/bar --pod', function () {
     let commandArgs = ['blueprint', 'foo/bar', '--pod'];
     let files = ['blueprints/foo/bar/index.js'];
-
-    return assertDestroyAfterGenerate(commandArgs, files);
-  });
-
-  it('http-mock foo --pod', function () {
-    let commandArgs = ['http-mock', 'foo', '--pod'];
-    let files = ['server/mocks/foo.js'];
-
-    return assertDestroyAfterGenerate(commandArgs, files);
-  });
-
-  it('http-proxy foo --pod', function () {
-    let commandArgs = ['http-proxy', 'foo', 'bar', '--pod'];
-    let files = ['server/proxies/foo.js'];
 
     return assertDestroyAfterGenerate(commandArgs, files);
   });

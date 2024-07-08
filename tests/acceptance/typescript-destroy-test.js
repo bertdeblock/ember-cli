@@ -36,7 +36,7 @@ describe('Acceptance: ember destroy with typescript blueprints', function () {
   });
 
   function initApp() {
-    return ember(['init', '--name=my-app', '--skip-npm']);
+    return ember(['init', '--name=my-app']);
   }
 
   function generate(args) {

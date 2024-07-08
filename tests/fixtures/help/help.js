@@ -39,13 +39,6 @@ module.exports = {
           required: false
         },
         {
-          name: 'skip-npm',
-          default: false,
-          aliases: ['sn', 'skip-install', 'si'],
-          key: 'skipNpm',
-          required: false
-        },
-        {
           name: 'skip-git',
           default: false,
           aliases: ['sg'],
@@ -273,12 +266,6 @@ module.exports = {
           required: false
         },
         {
-          name: 'lint-fix',
-          default: true,
-          key: 'lintFix',
-          required: false
-        },
-        {
           name: 'in',
           default: null,
           description: 'Runs a blueprint against an in repo addon. A path is expected, relative to the root of the project.',
@@ -326,36 +313,8 @@ module.exports = {
               overridden: false
             },
             {
-              name: 'http-mock',
-              description: 'Generates a mock api endpoint in /api prefix.',
-              availableOptions: [],
-              anonymousOptions: ['endpoint-path'],
-              overridden: false
-            },
-            {
-              name: 'http-proxy',
-              description: 'Generates a relative proxy to another server.',
-              availableOptions: [],
-              anonymousOptions: ['local-path', 'remote-url'],
-              overridden: false
-            },
-            {
               name: 'in-repo-addon',
               description: 'The blueprint for addon in repo ember-cli addons.',
-              availableOptions: [],
-              anonymousOptions: ['name'],
-              overridden: false
-            },
-            {
-              name: 'lib',
-              description: 'Generates a lib directory for in-repo addons.',
-              availableOptions: [],
-              anonymousOptions: ['name'],
-              overridden: false
-            },
-            {
-              name: 'server',
-              description: 'Generates a server directory for mocks and proxies.',
               availableOptions: [],
               anonymousOptions: ['name'],
               overridden: false
@@ -413,19 +372,6 @@ module.exports = {
           required: false
         },
         {
-          name: 'skip-npm',
-          default: false,
-          aliases: ['sn', 'skip-install', 'si'],
-          key: 'skipNpm',
-          required: false
-        },
-        {
-          name: 'lint-fix',
-          default: true,
-          key: 'lintFix',
-          required: false
-        },
-        {
           name: 'welcome',
           key: 'welcome',
           description: 'Installs and uses {{ember-welcome-page}}. Use --no-welcome to skip it.',
@@ -478,45 +424,6 @@ module.exports = {
       anonymousOptions: ['<glob-pattern>']
     },
     {
-      name: 'install',
-      description: 'Installs an ember-cli addon from npm.',
-      aliases: ['i'],
-      works: 'insideProject',
-      availableOptions: [
-        {
-          name: 'save',
-          default: false,
-          aliases: ['S'],
-          key: 'save',
-          required: false
-        },
-        {
-          name: 'save-dev',
-          default: true,
-          aliases: ['D'],
-          key: 'saveDev',
-          required: false
-        },
-        {
-          name: 'save-exact',
-          default: false,
-          aliases: ['E', 'exact'],
-          key: 'saveExact',
-          required: false
-        },
-        {
-          aliases: [{ npm: 'npm' }, { pnpm: 'pnpm' }, { yarn: 'yarn' }],
-          description:
-            'Use this option to force the usage of a specific package manager. By default, ember-cli will try to detect the right package manager from any lockfiles that exist in your project.',
-          key: 'packageManager',
-          name: 'package-manager',
-          required: false,
-          type: ['npm', 'pnpm', 'yarn'],
-        },
-      ],
-      anonymousOptions: ['<addon-name>']
-    },
-    {
       name: 'new',
       description: processHelpString('Creates a new directory and runs \u001b[32member init\u001b[39m in it.'),
       aliases: [],
@@ -541,13 +448,6 @@ module.exports = {
           default: 'app',
           aliases: ['b'],
           key: 'blueprint',
-          required: false
-        },
-        {
-          name: 'skip-npm',
-          default: false,
-          aliases: ['sn', 'skip-install', 'si'],
-          key: 'skipNpm',
           required: false
         },
         {

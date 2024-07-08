@@ -64,26 +64,7 @@ describe('generate command', function () {
     };
 
     return expect(command.validateAndRun(['controller', 'foo'])).to.be.rejected.then((reason) => {
-      expect(reason.message).to.eql(
-        'Required packages are missing, run `npm install` from this directory to install them.'
-      );
-    });
-  });
-
-  it('runs GenerateFromBlueprint but with null nodeModulesPath with yarn', function () {
-    // force usage of `yarn` by adding yarn.lock file
-    input.write({
-      'yarn.lock': '',
-    });
-
-    command.project.hasDependencies = function () {
-      return false;
-    };
-
-    return expect(command.validateAndRun(['controller', 'foo'])).to.be.rejected.then((reason) => {
-      expect(reason.message).to.eql(
-        'Required packages are missing, run `yarn install` from this directory to install them.'
-      );
+      expect(reason.message).to.equal('Node modules seem to be missing. Please make sure to install all node modules.');
     });
   });
 
