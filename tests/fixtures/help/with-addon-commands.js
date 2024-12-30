@@ -347,13 +347,6 @@ module.exports = {
               overridden: false
             },
             {
-              name: 'lib',
-              description: 'Generates a lib directory for in-repo addons.',
-              availableOptions: [],
-              anonymousOptions: ['name'],
-              overridden: false
-            },
-            {
               name: 'server',
               description: 'Generates a server directory for mocks and proxies.',
               availableOptions: [],

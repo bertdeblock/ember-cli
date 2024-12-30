@@ -13,7 +13,7 @@ const td = require('testdouble');
 const lintFix = require('../../lib/utilities/lint-fix');
 
 const { expect } = require('chai');
-const { dir, file } = require('chai-files');
+const { file } = require('chai-files');
 
 describe('Acceptance: ember generate', function () {
   this.timeout(20000);
@@ -176,11 +176,6 @@ describe('Acceptance: ember generate', function () {
   it('server', async function () {
     await generate(['server']);
     expect(file('server/index.js')).to.exist;
-  });
-
-  it('lib', async function () {
-    await generate(['lib']);
-    expect(dir('lib')).to.exist;
   });
 
   it('custom blueprint availableOptions', async function () {
