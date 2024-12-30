@@ -86,9 +86,6 @@ importers:
       diff:
         specifier: ^5.1.0
         version: 5.2.0
-      ember-cli-is-package-missing:
-        specifier: ^1.0.0
-        version: 1.0.0
       ember-cli-lodash-subset:
         specifier: ^2.0.1
         version: 2.0.1
@@ -1964,9 +1961,6 @@ packages:
 
   ember-cli-internal-test-helpers@0.9.1:
     resolution: {integrity: sha512-ia+p7LrAe2tENG+Vewdi93kGlsI7OkjB7tEakTtCELkIvZpmPX+uYGhIi5nVOynLiej2M81MQmNqB8jX93ejqQ==}
-
-  ember-cli-is-package-missing@1.0.0:
-    resolution: {integrity: sha512-9hEoZj6Au5onlSDdcoBqYEPT8ehlYntZPxH8pBKV0GO7LNel88otSAQsCfXvbi2eKE+MaSeLG/gNaCI5UdWm9g==}
 
   ember-cli-lodash-subset@2.0.1:
     resolution: {integrity: sha512-QkLGcYv1WRK35g4MWu/uIeJ5Suk2eJXKtZ+8s+qE7C9INmpCPyPxzaqZABquYzcWNzIdw6kYwz3NWAFdKYFxwg==}
@@ -7206,8 +7200,6 @@ snapshots:
       walk-sync: 0.3.4
     transitivePeerDependencies:
       - supports-color
-
-  ember-cli-is-package-missing@1.0.0: {}
 
   ember-cli-lodash-subset@2.0.1: {}
 

@@ -101,20 +101,6 @@ describe('Acceptance: ember destroy pod', function () {
     return assertDestroyAfterGenerate(commandArgs, files);
   });
 
-  it('http-mock foo --pod', function () {
-    let commandArgs = ['http-mock', 'foo', '--pod'];
-    let files = ['server/mocks/foo.js'];
-
-    return assertDestroyAfterGenerate(commandArgs, files);
-  });
-
-  it('http-proxy foo --pod', function () {
-    let commandArgs = ['http-proxy', 'foo', 'bar', '--pod'];
-    let files = ['server/proxies/foo.js'];
-
-    return assertDestroyAfterGenerate(commandArgs, files);
-  });
-
   it('deletes files generated using blueprints from the project directory', async function () {
     let commandArgs = ['foo', 'bar', '--pod'];
     let files = ['app/foos/bar.js'];

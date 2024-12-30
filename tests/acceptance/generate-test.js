@@ -78,30 +78,6 @@ describe('Acceptance: ember generate', function () {
     expect(file('blueprints/foo/bar/index.js').content).to.matchSnapshot();
   });
 
-  it('http-mock foo', async function () {
-    await generate(['http-mock', 'foo']);
-
-    expect(file('server/index.js')).to.contain('mocks.forEach(route => route(app));');
-
-    expect(file('server/mocks/foo.js').content).to.matchSnapshot();
-  });
-
-  it('http-mock foo-bar', async function () {
-    await generate(['http-mock', 'foo-bar']);
-
-    expect(file('server/index.js')).to.contain('mocks.forEach(route => route(app));');
-
-    expect(file('server/mocks/foo-bar.js').content).to.matchSnapshot();
-  });
-
-  it('http-proxy foo', async function () {
-    await generate(['http-proxy', 'foo', 'http://localhost:5000']);
-
-    expect(file('server/index.js')).to.contain('proxies.forEach(route => route(app));');
-
-    expect(file('server/proxies/foo.js').content).to.matchSnapshot();
-  });
-
   it('uses blueprints from the project directory', async function () {
     await initApp();
 
@@ -171,11 +147,6 @@ describe('Acceptance: ember generate', function () {
 
     process.chdir(tmpdir);
     expect(file('app/controllers/foo.js')).to.contain('custom: true');
-  });
-
-  it('server', async function () {
-    await generate(['server']);
-    expect(file('server/index.js')).to.exist;
   });
 
   it('custom blueprint availableOptions', async function () {
