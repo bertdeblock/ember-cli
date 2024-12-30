@@ -8,7 +8,6 @@ let root = process.cwd();
 let tmproot = path.join(root, 'tmp');
 const mkTmpDirIn = require('../helpers/mk-tmp-dir-in');
 const td = require('testdouble');
-const lintFix = require('../../lib/utilities/lint-fix');
 
 const { expect } = require('chai');
 const { file } = require('chai-files');
@@ -164,14 +163,6 @@ describe('Acceptance: ember generate', function () {
     await ember(['generate', 'foo', 'bar', '-two']);
 
     expect(file('app/foos/bar.js')).to.contain('export default Ember.Object.extend({ foo: two });');
-  });
-
-  it('calls lint fix function', async function () {
-    let lintFixStub = td.replace(lintFix, 'run');
-
-    await generate(['blueprint', 'foo', '--lint-fix']);
-
-    td.verify(lintFixStub(), { ignoreExtraArgs: true, times: 1 });
   });
 
   it('successfully generates a blueprint with a scoped name', async function () {

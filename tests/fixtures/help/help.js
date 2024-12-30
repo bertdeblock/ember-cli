@@ -266,12 +266,6 @@ module.exports = {
           required: false
         },
         {
-          name: 'lint-fix',
-          default: true,
-          key: 'lintFix',
-          required: false
-        },
-        {
           name: 'in',
           default: null,
           description: 'Runs a blueprint against an in repo addon. A path is expected, relative to the root of the project.',
@@ -375,12 +369,6 @@ module.exports = {
           name: 'blueprint',
           aliases: ['b'],
           key: 'blueprint',
-          required: false
-        },
-        {
-          name: 'lint-fix',
-          default: true,
-          key: 'lintFix',
           required: false
         },
         {

@@ -72,7 +72,6 @@ ember generate [33m<blueprint>[39m [36m<options...>[39m
     [90maliases: -dum, -id[39m
   [36m--in-repo-addon[39m [36m(String)[39m [36m(Default: null)[39m
     [90maliases: --in-repo <value>, -ir <value>[39m
-  [36m--lint-fix[39m [36m(Boolean)[39m [36m(Default: true)[39m
   [36m--in[39m [36m(String)[39m [36m(Default: null)[39m Runs a blueprint against an in repo addon. A path is expected, relative to the root of the project.
   [36m--typescript[39m [36m(Boolean)[39m Generates a version of the blueprint written in TypeScript (if available).
     [90maliases: -ts[39m
@@ -92,7 +91,6 @@ ember init [33m<glob-pattern>[39m [36m<options...>[39m
     [90maliases: -v[39m
   [36m--blueprint[39m [36m(String)[39m
     [90maliases: -b <value>[39m
-  [36m--lint-fix[39m [36m(Boolean)[39m [36m(Default: true)[39m
   [36m--welcome[39m [36m(Boolean)[39m [36m(Default: true)[39m Installs and uses {{ember-welcome-page}}. Use --no-welcome to skip it.
   [36m--package-manager[39m [36m(npm, pnpm, yarn)[39m
     [90maliases: -npm (--package-manager=npm), -pnpm (--package-manager=pnpm), -yarn (--package-manager=yarn)[39m

@@ -13,7 +13,6 @@ const minimatch = require('minimatch');
 const { intersection: intersect, remove } = require('ember-cli-lodash-subset');
 const EOL = require('os').EOL;
 const td = require('testdouble');
-const lintFix = require('../../lib/utilities/lint-fix');
 
 const { expect } = require('chai');
 const { dir, file } = require('chai-files');
@@ -183,16 +182,6 @@ describe('Acceptance: ember init', function () {
     await ember(['init']);
 
     expect(dir('.git')).to.not.exist;
-  });
-
-  it('calls lint fix function', async function () {
-    let lintFixStub = td.replace(lintFix, 'run');
-
-    await ember(['init', '--lint-fix']);
-
-    td.verify(lintFixStub(), { ignoreExtraArgs: true, times: 1 });
-
-    confirmBlueprinted();
   });
 
   it('no CI provider', async function () {
