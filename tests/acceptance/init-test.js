@@ -124,63 +124,63 @@ describe('Acceptance: ember init', function () {
   }
 
   it('ember init', async function () {
-    await ember(['init', '--skip-npm']);
+    await ember(['init']);
 
     confirmBlueprinted();
   });
 
   it("init an already init'd folder", async function () {
-    await ember(['init', '--skip-npm']);
+    await ember(['init']);
 
-    await ember(['init', '--skip-npm']);
+    await ember(['init']);
 
     confirmBlueprinted();
   });
 
   it('init a single file', async function () {
-    await ember(['init', 'app.js', '--skip-npm']);
+    await ember(['init', 'app.js']);
 
     confirmGlobBlueprinted('app.js');
   });
 
   it("init a single file on already init'd folder", async function () {
-    await ember(['init', '--skip-npm']);
+    await ember(['init']);
 
-    await ember(['init', 'app.js', '--skip-npm']);
+    await ember(['init', 'app.js']);
 
     confirmBlueprinted();
   });
 
   it('init multiple files by glob pattern', async function () {
-    await ember(['init', 'app/**', '--skip-npm']);
+    await ember(['init', 'app/**']);
 
     confirmGlobBlueprinted('app/**');
   });
 
   it("init multiple files by glob pattern on already init'd folder", async function () {
-    await ember(['init', '--skip-npm']);
+    await ember(['init']);
 
-    await ember(['init', 'app/**', '--skip-npm']);
+    await ember(['init', 'app/**']);
 
     confirmBlueprinted();
   });
 
   it('init multiple files by glob patterns', async function () {
-    await ember(['init', 'app/**', 'package.json', 'resolver.js', '--skip-npm']);
+    await ember(['init', 'app/**', 'package.json', 'resolver.js']);
 
     confirmGlobBlueprinted('{app/**,package.json,resolver.js}');
   });
 
   it("init multiple files by glob patterns on already init'd folder", async function () {
-    await ember(['init', '--skip-npm']);
+    await ember(['init']);
 
-    await ember(['init', 'app/**', 'package.json', 'resolver.js', '--skip-npm']);
+    await ember(['init', 'app/**', 'package.json', 'resolver.js']);
 
     confirmBlueprinted();
   });
 
   it('should not create .git folder', async function () {
-    await ember(['init', '--skip-npm']);
+    await ember(['init']);
 
     expect(dir('.git')).to.not.exist;
   });
@@ -188,7 +188,7 @@ describe('Acceptance: ember init', function () {
   it('calls lint fix function', async function () {
     let lintFixStub = td.replace(lintFix, 'run');
 
-    await ember(['init', '--skip-npm', '--lint-fix']);
+    await ember(['init', '--lint-fix']);
 
     td.verify(lintFixStub(), { ignoreExtraArgs: true, times: 1 });
 

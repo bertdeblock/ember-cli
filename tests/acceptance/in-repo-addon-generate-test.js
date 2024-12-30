@@ -5,8 +5,6 @@ const { outputFile, remove } = require('fs-extra');
 const path = require('path');
 let root = process.cwd();
 let tmproot = path.join(root, 'tmp');
-const Blueprint = require('../../lib/models/blueprint');
-const BlueprintNpmTask = require('ember-cli-internal-test-helpers/lib/helpers/disable-npm-on-blueprint');
 const mkTmpDirIn = require('../helpers/mk-tmp-dir-in');
 
 const { expect } = require('chai');
@@ -14,14 +12,6 @@ const { file } = require('chai-files');
 
 describe('Acceptance: ember generate in-repo-addon', function () {
   this.timeout(20000);
-
-  before(function () {
-    BlueprintNpmTask.disableNPM(Blueprint);
-  });
-
-  after(function () {
-    BlueprintNpmTask.restoreNPM(Blueprint);
-  });
 
   beforeEach(async function () {
     const tmpdir = await mkTmpDirIn(tmproot);
@@ -34,7 +24,7 @@ describe('Acceptance: ember generate in-repo-addon', function () {
   });
 
   function initApp() {
-    return ember(['init', '--name=my-app', '--skip-npm']);
+    return ember(['init', '--name=my-app']);
   }
 
   async function initInRepoAddon() {

@@ -193,8 +193,6 @@ describe('lib/utilities/get-lang-arg', function () {
       '-v',
       '--blueprint',
       '-b',
-      '--skip-npm',
-      '-sn',
       '--welcome',
       '--no-welcome',
       '--yarn',

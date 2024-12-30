@@ -6,8 +6,6 @@ const path = require('path');
 const replaceFile = require('ember-cli-internal-test-helpers/lib/helpers/file-utils').replaceFile;
 let root = process.cwd();
 let tmproot = path.join(root, 'tmp');
-const Blueprint = require('../../lib/models/blueprint');
-const BlueprintNpmTask = require('ember-cli-internal-test-helpers/lib/helpers/disable-npm-on-blueprint');
 const mkTmpDirIn = require('../helpers/mk-tmp-dir-in');
 const td = require('testdouble');
 const lintFix = require('../../lib/utilities/lint-fix');
@@ -19,14 +17,6 @@ describe('Acceptance: ember generate', function () {
   this.timeout(20000);
 
   let tmpdir;
-
-  before(function () {
-    BlueprintNpmTask.disableNPM(Blueprint);
-  });
-
-  after(function () {
-    BlueprintNpmTask.restoreNPM(Blueprint);
-  });
 
   beforeEach(async function () {
     tmpdir = await mkTmpDirIn(tmproot);
@@ -40,7 +30,7 @@ describe('Acceptance: ember generate', function () {
   });
 
   function initApp() {
-    return ember(['init', '--name=my-app', '--skip-npm']);
+    return ember(['init', '--name=my-app']);
   }
 
   function generate(args) {

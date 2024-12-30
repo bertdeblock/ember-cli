@@ -5,8 +5,6 @@ const { outputFile, remove, writeJson } = require('fs-extra');
 const path = require('path');
 let root = process.cwd();
 let tmproot = path.join(root, 'tmp');
-const Blueprint = require('../../lib/models/blueprint');
-const BlueprintNpmTask = require('ember-cli-internal-test-helpers/lib/helpers/disable-npm-on-blueprint');
 const mkTmpDirIn = require('../helpers/mk-tmp-dir-in');
 const td = require('testdouble');
 
@@ -17,14 +15,6 @@ describe('Acceptance: ember generate with typescript blueprints', function () {
   this.timeout(20000);
 
   let tmpdir;
-
-  before(function () {
-    BlueprintNpmTask.disableNPM(Blueprint);
-  });
-
-  after(function () {
-    BlueprintNpmTask.restoreNPM(Blueprint);
-  });
 
   beforeEach(async function () {
     tmpdir = await mkTmpDirIn(tmproot);
@@ -38,7 +28,7 @@ describe('Acceptance: ember generate with typescript blueprints', function () {
   });
 
   function initApp() {
-    return ember(['init', '--name=my-app', '--skip-npm']);
+    return ember(['init', '--name=my-app']);
   }
 
   it('transpiles typescript by default', async function () {

@@ -39,13 +39,6 @@ module.exports = {
           required: false
         },
         {
-          name: 'skip-npm',
-          default: false,
-          aliases: ['sn', 'skip-install', 'si'],
-          key: 'skipNpm',
-          required: false
-        },
-        {
           name: 'skip-git',
           default: false,
           aliases: ['sg'],
@@ -417,13 +410,6 @@ module.exports = {
           required: false
         },
         {
-          name: 'skip-npm',
-          default: false,
-          aliases: ['sn', 'skip-install', 'si'],
-          key: 'skipNpm',
-          required: false
-        },
-        {
           name: 'lint-fix',
           default: true,
           key: 'lintFix',
@@ -506,13 +492,6 @@ module.exports = {
           default: 'app',
           aliases: ['b'],
           key: 'blueprint',
-          required: false
-        },
-        {
-          name: 'skip-npm',
-          default: false,
-          aliases: ['sn', 'skip-install', 'si'],
-          key: 'skipNpm',
           required: false
         },
         {
