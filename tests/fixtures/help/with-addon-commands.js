@@ -326,29 +326,8 @@ module.exports = {
               overridden: false
             },
             {
-              name: 'http-mock',
-              description: 'Generates a mock api endpoint in /api prefix.',
-              availableOptions: [],
-              anonymousOptions: ['endpoint-path'],
-              overridden: false
-            },
-            {
-              name: 'http-proxy',
-              description: 'Generates a relative proxy to another server.',
-              availableOptions: [],
-              anonymousOptions: ['local-path', 'remote-url'],
-              overridden: false
-            },
-            {
               name: 'in-repo-addon',
               description: 'The blueprint for addon in repo ember-cli addons.',
-              availableOptions: [],
-              anonymousOptions: ['name'],
-              overridden: false
-            },
-            {
-              name: 'server',
-              description: 'Generates a server directory for mocks and proxies.',
               availableOptions: [],
               anonymousOptions: ['name'],
               overridden: false
