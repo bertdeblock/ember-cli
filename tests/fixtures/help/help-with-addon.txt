@@ -107,18 +107,6 @@ ember init [33m<glob-pattern>[39m [36m<options...>[39m
   [36m--ci-provider[39m [36m(github, none)[39m [36m(Default: github)[39m Installs the optional default CI blueprint. Only Github Actions is supported at the moment.
   [36m--typescript[39m [36m(Boolean)[39m [36m(Default: false)[39m Set up the app to use TypeScript
 
-ember install [33m<addon-name>[39m [36m<options...>[39m
-  Installs an ember-cli addon from npm.
-  [90maliases: i[39m
-  [36m--save[39m [36m(Boolean)[39m [36m(Default: false)[39m
-    [90maliases: -S[39m
-  [36m--save-dev[39m [36m(Boolean)[39m [36m(Default: true)[39m
-    [90maliases: -D[39m
-  [36m--save-exact[39m [36m(Boolean)[39m [36m(Default: false)[39m
-    [90maliases: -E, --exact[39m
-  [36m--package-manager[39m [36m(npm, pnpm, yarn)[39m Use this option to force the usage of a specific package manager. By default, ember-cli will try to detect the right package manager from any lockfiles that exist in your project.
-    [90maliases: -npm (--package-manager=npm), -pnpm (--package-manager=pnpm), -yarn (--package-manager=yarn)[39m
-
 ember new [33m<app-name>[39m [36m<options...>[39m
   Creates a new directory and runs [32member init[39m in it.
   [36m--dry-run[39m [36m(Boolean)[39m [36m(Default: false)[39m

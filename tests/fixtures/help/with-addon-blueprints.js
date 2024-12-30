@@ -482,45 +482,6 @@ module.exports = {
       anonymousOptions: ['<glob-pattern>']
     },
     {
-      name: 'install',
-      description: 'Installs an ember-cli addon from npm.',
-      aliases: ['i'],
-      works: 'insideProject',
-      availableOptions: [
-        {
-          name: 'save',
-          default: false,
-          aliases: ['S'],
-          key: 'save',
-          required: false
-        },
-        {
-          name: 'save-dev',
-          default: true,
-          aliases: ['D'],
-          key: 'saveDev',
-          required: false
-        },
-        {
-          name: 'save-exact',
-          default: false,
-          aliases: ['E', 'exact'],
-          key: 'saveExact',
-          required: false
-        },
-        {
-          aliases: [{ npm: 'npm' }, { pnpm: 'pnpm' }, { yarn: 'yarn' }],
-          description:
-            'Use this option to force the usage of a specific package manager. By default, ember-cli will try to detect the right package manager from any lockfiles that exist in your project.',
-          key: 'packageManager',
-          name: 'package-manager',
-          required: false,
-          type: ['npm', 'pnpm', 'yarn'],
-        },
-      ],
-      anonymousOptions: ['<addon-name>']
-    },
-    {
       name: 'new',
       description: processHelpString('Creates a new directory and runs \u001b[32member init\u001b[39m in it.'),
       aliases: [],
