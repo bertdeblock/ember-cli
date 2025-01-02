@@ -20,7 +20,6 @@ describe('init command', function () {
     tasks = {
       GenerateFromBlueprint: class extends Task {},
       InstallBlueprint: class extends Task {},
-      NpmInstall: class extends Task {},
     };
 
     let tmpDir = os.tmpdir();

@@ -5,8 +5,6 @@ const path = require('path');
 const fs = require('fs-extra');
 let root = process.cwd();
 let tmproot = path.join(root, 'tmp');
-const Blueprint = require('../../lib/models/blueprint');
-const BlueprintNpmTask = require('ember-cli-internal-test-helpers/lib/helpers/disable-npm-on-blueprint');
 const mkTmpDirIn = require('../helpers/mk-tmp-dir-in');
 
 const { expect } = require('chai');
@@ -14,14 +12,6 @@ const { file } = require('chai-files');
 
 describe('Acceptance: ember generate in-addon', function () {
   this.timeout(20000);
-
-  before(function () {
-    BlueprintNpmTask.disableNPM(Blueprint);
-  });
-
-  after(function () {
-    BlueprintNpmTask.restoreNPM(Blueprint);
-  });
 
   beforeEach(async function () {
     let tmpdir = await mkTmpDirIn(tmproot);
@@ -100,35 +90,6 @@ describe('Acceptance: ember generate in-addon', function () {
     await generateInAddon(['blueprint', 'foo/bar']);
 
     expect(file('blueprints/foo/bar/index.js').content).to.matchSnapshot();
-  });
-
-  it('in-addon http-mock foo', async function () {
-    await generateInAddon(['http-mock', 'foo']);
-
-    expect(file('server/index.js')).to.contain('mocks.forEach(route => route(app));');
-
-    expect(file('server/mocks/foo.js').content).to.matchSnapshot();
-  });
-
-  it('in-addon http-mock foo-bar', async function () {
-    await generateInAddon(['http-mock', 'foo-bar']);
-
-    expect(file('server/index.js')).to.contain('mocks.forEach(route => route(app));');
-
-    expect(file('server/mocks/foo-bar.js').content).to.matchSnapshot();
-  });
-
-  it('in-addon http-proxy foo', async function () {
-    await generateInAddon(['http-proxy', 'foo', 'http://localhost:5000']);
-
-    expect(file('server/index.js')).to.contain('proxies.forEach(route => route(app));');
-
-    expect(file('server/proxies/foo.js').content).to.matchSnapshot();
-  });
-
-  it('in-addon server', async function () {
-    await generateInAddon(['server']);
-    expect(file('server/index.js')).to.exist;
   });
 
   it('successfully generates the default blueprint for scoped addons', async function () {

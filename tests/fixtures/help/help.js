@@ -1,6 +1,4 @@
 const processHelpString = require('../../helpers/process-help-string');
-const versionUtils      = require('../../../lib/utilities/version-utils');
-var emberCLIVersion   = versionUtils.emberCLIVersion;
 
 module.exports = {
   name: 'ember',
@@ -9,7 +7,7 @@ module.exports = {
   works: 'insideProject',
   availableOptions: [],
   anonymousOptions: ['<command (Default: help)>'],
-  version: emberCLIVersion(),
+  version: require('../../../package.json').version,
   commands: [
     {
       name: 'addon',
@@ -326,36 +324,8 @@ module.exports = {
               overridden: false
             },
             {
-              name: 'http-mock',
-              description: 'Generates a mock api endpoint in /api prefix.',
-              availableOptions: [],
-              anonymousOptions: ['endpoint-path'],
-              overridden: false
-            },
-            {
-              name: 'http-proxy',
-              description: 'Generates a relative proxy to another server.',
-              availableOptions: [],
-              anonymousOptions: ['local-path', 'remote-url'],
-              overridden: false
-            },
-            {
               name: 'in-repo-addon',
               description: 'The blueprint for addon in repo ember-cli addons.',
-              availableOptions: [],
-              anonymousOptions: ['name'],
-              overridden: false
-            },
-            {
-              name: 'lib',
-              description: 'Generates a lib directory for in-repo addons.',
-              availableOptions: [],
-              anonymousOptions: ['name'],
-              overridden: false
-            },
-            {
-              name: 'server',
-              description: 'Generates a server directory for mocks and proxies.',
               availableOptions: [],
               anonymousOptions: ['name'],
               overridden: false
@@ -476,45 +446,6 @@ module.exports = {
         },
       ],
       anonymousOptions: ['<glob-pattern>']
-    },
-    {
-      name: 'install',
-      description: 'Installs an ember-cli addon from npm.',
-      aliases: ['i'],
-      works: 'insideProject',
-      availableOptions: [
-        {
-          name: 'save',
-          default: false,
-          aliases: ['S'],
-          key: 'save',
-          required: false
-        },
-        {
-          name: 'save-dev',
-          default: true,
-          aliases: ['D'],
-          key: 'saveDev',
-          required: false
-        },
-        {
-          name: 'save-exact',
-          default: false,
-          aliases: ['E', 'exact'],
-          key: 'saveExact',
-          required: false
-        },
-        {
-          aliases: [{ npm: 'npm' }, { pnpm: 'pnpm' }, { yarn: 'yarn' }],
-          description:
-            'Use this option to force the usage of a specific package manager. By default, ember-cli will try to detect the right package manager from any lockfiles that exist in your project.',
-          key: 'packageManager',
-          name: 'package-manager',
-          required: false,
-          type: ['npm', 'pnpm', 'yarn'],
-        },
-      ],
-      anonymousOptions: ['<addon-name>']
     },
     {
       name: 'new',

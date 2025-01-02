@@ -8,9 +8,6 @@ let root = process.cwd();
 let tmproot = path.join(root, 'tmp');
 const mkTmpDirIn = require('../helpers/mk-tmp-dir-in');
 
-const Blueprint = require('../../lib/models/blueprint');
-const BlueprintNpmTask = require('ember-cli-internal-test-helpers/lib/helpers/disable-npm-on-blueprint');
-
 const { expect } = require('chai');
 const { file } = require('chai-files');
 
@@ -18,14 +15,6 @@ describe('Acceptance: ember destroy pod', function () {
   let tmpdir;
 
   this.timeout(20000);
-
-  before(function () {
-    BlueprintNpmTask.disableNPM(Blueprint);
-  });
-
-  after(function () {
-    BlueprintNpmTask.restoreNPM(Blueprint);
-  });
 
   beforeEach(async function () {
     tmpdir = await mkTmpDirIn(tmproot);
@@ -97,20 +86,6 @@ describe('Acceptance: ember destroy pod', function () {
   it('blueprint foo/bar --pod', function () {
     let commandArgs = ['blueprint', 'foo/bar', '--pod'];
     let files = ['blueprints/foo/bar/index.js'];
-
-    return assertDestroyAfterGenerate(commandArgs, files);
-  });
-
-  it('http-mock foo --pod', function () {
-    let commandArgs = ['http-mock', 'foo', '--pod'];
-    let files = ['server/mocks/foo.js'];
-
-    return assertDestroyAfterGenerate(commandArgs, files);
-  });
-
-  it('http-proxy foo --pod', function () {
-    let commandArgs = ['http-proxy', 'foo', 'bar', '--pod'];
-    let files = ['server/proxies/foo.js'];
 
     return assertDestroyAfterGenerate(commandArgs, files);
   });

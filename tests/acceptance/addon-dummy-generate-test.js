@@ -5,8 +5,6 @@ const fs = require('fs-extra');
 const path = require('path');
 let root = process.cwd();
 let tmproot = path.join(root, 'tmp');
-const Blueprint = require('../../lib/models/blueprint');
-const BlueprintNpmTask = require('ember-cli-internal-test-helpers/lib/helpers/disable-npm-on-blueprint');
 const mkTmpDirIn = require('../helpers/mk-tmp-dir-in');
 
 const { expect } = require('chai');
@@ -14,14 +12,6 @@ const { file } = require('chai-files');
 
 describe('Acceptance: ember generate in-addon-dummy', function () {
   this.timeout(20000);
-
-  before(function () {
-    BlueprintNpmTask.disableNPM(Blueprint);
-  });
-
-  after(function () {
-    BlueprintNpmTask.restoreNPM(Blueprint);
-  });
 
   beforeEach(async function () {
     let tmpdir = await mkTmpDirIn(tmproot);
@@ -55,35 +45,6 @@ describe('Acceptance: ember generate in-addon-dummy', function () {
     await generateInAddon(['blueprint', 'foo/bar', '--dummy']);
 
     expect(file('blueprints/foo/bar/index.js').content).to.matchSnapshot();
-  });
-
-  it('dummy http-mock foo', async function () {
-    await generateInAddon(['http-mock', 'foo', '--dummy']);
-
-    expect(file('server/index.js').content).to.matchSnapshot();
-
-    expect(file('server/mocks/foo.js').content).to.matchSnapshot();
-  });
-
-  it('dummy http-mock foo-bar', async function () {
-    await generateInAddon(['http-mock', 'foo-bar', '--dummy']);
-
-    expect(file('server/index.js').content).to.matchSnapshot();
-
-    expect(file('server/mocks/foo-bar.js').content).to.matchSnapshot();
-  });
-
-  it('dummy http-proxy foo', async function () {
-    await generateInAddon(['http-proxy', 'foo', 'http://localhost:5000', '--dummy']);
-
-    expect(file('server/index.js').content).to.matchSnapshot();
-
-    expect(file('server/proxies/foo.js').content).to.matchSnapshot();
-  });
-
-  it('dummy server', async function () {
-    await generateInAddon(['server', '--dummy']);
-    expect(file('server/index.js')).to.exist;
   });
 
   // ember addon foo --lang
