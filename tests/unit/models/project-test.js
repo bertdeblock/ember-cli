@@ -7,7 +7,6 @@ const Addon = require('../../../lib/models/addon');
 const tmp = require('../../helpers/tmp');
 const touch = require('../../helpers/file-utils').touch;
 const { expect } = require('chai');
-const emberCLIVersion = require('../../../lib/utilities/version-utils').emberCLIVersion;
 const td = require('testdouble');
 const MockCLI = require('../../helpers/mock-cli');
 
@@ -534,7 +533,7 @@ describe('models/project.js', function () {
     });
 
     it('should return the same value as the utility function', function () {
-      expect(project.emberCLIVersion()).to.equal(emberCLIVersion());
+      expect(project.emberCLIVersion()).to.equal(require('../../../package.json').version);
     });
   });
 
